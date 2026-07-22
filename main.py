@@ -84,7 +84,8 @@ def main() -> None:
         except GraphRecursionError:
             print(
                 "\nAgent error: graph recursion limit reached. "
-                "Increase recursion_limit in .env or config.py, and ensure the agent has a proper stop condition."
+                "Increase recursion_limit in .env or config.py, "
+                "and ensure the agent has a proper stop condition."
             )
             continue
         except KeyboardInterrupt:
