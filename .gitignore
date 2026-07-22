@@ -1,5 +1,10 @@
 .env
 __pycache__/
 *.pyc
-output/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+output/*
+!output/.gitkeep
 .idea/
