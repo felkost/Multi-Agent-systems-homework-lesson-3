@@ -25,6 +25,9 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt -r requirements-dev.txt
 
+      - name: pip check
+        run: python -m pip check
+
       - name: black --check
         run: black --check .
 
@@ -32,14 +35,8 @@ jobs:
         run: flake8 .
 
       - name: mypy
-        # TODO: remove continue-on-error once tools.py/agent.py are implemented.
-        # tools.py stubs (return-annotated functions with just `pass`) fail the
-        # empty-body check, and agent.py's `agent = ...` makes main.py's
-        # agent.stream() call untyped — both are real signals, not config bugs.
-        continue-on-error: true
+
         run: mypy .
 
       - name: pytest
-        # Exit code 5 = "no tests collected". Tolerated until tests/ exists;
-        # any other non-zero exit still fails the build normally.
-        run: pytest || [ "$?" -eq 5 ]
+        run: pytest
