@@ -17,7 +17,7 @@ supervisor/subagents, роутери чи інші мультиагентні п
 ## Архітектура
 
 | Файл | Роль |
-|---|---|
+| --- | --- |
 | `main.py` | Entry point. Інтерактивний REPL: читає питання з терміналу, стрімить відповідь агента. Має тримати **сталий `thread_id`** в межах усієї сесії — це єдиний спосіб, яким `MemorySaver`/checkpointer памʼятає попередні повідомлення. |
 | `agent.py` | Створення агента: LLM (`ChatOpenAI` через `langchain-openai`), три tools, checkpointer (`InMemorySaver`/`MemorySaver`), middleware для лімітів кроків. |
 | `tools.py` | Реалізації `web_search`, `read_url`, `write_report` як LangChain `@tool` — з описами, які бачить модель. |
