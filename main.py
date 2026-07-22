@@ -1,7 +1,7 @@
 from agent import agent
 
 
-def main():
+def main() -> None:
     print("Research Agent (type 'exit' to quit)")
     print("-" * 40)
 
