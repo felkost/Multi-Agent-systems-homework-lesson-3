@@ -39,9 +39,9 @@ pytest
 ## Гілки та коміти
 
 - Гілки: `feat/...`, `fix/...`, `chore/...` — короткий опис через дефіс.
-- Коміти: короткий імперативний опис змін (`add web_search tool`, `fix
-  thread_id persistence`) — без суворого Conventional Commits, головне щоб
-  history залишалась читабельною.
+- Коміти: короткий опис у формі вже зробленого (`added web_search tool`,
+  `fixed thread_id persistence`) — без суворого Conventional Commits, головне
+  щоб history залишалась читабельною.
 
 ## Pull Request
 
