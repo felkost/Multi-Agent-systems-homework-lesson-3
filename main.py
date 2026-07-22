@@ -3,6 +3,7 @@ from uuid import uuid4  # створює унікальний thread_id
 # повідомлення моделі, результат виконання tool
 from langchain_core.messages import AIMessage, ToolMessage
 from langchain_core.runnables import RunnableConfig  # тип конфігурації LangGraph
+from langgraph.errors import GraphRecursionError
 from openai import OpenAIError  # базовий виняток OpenAI API
 from pydantic import ValidationError  # помилки Settings
 
@@ -78,6 +79,12 @@ def main() -> None:
             print(
                 "\nAgent error: OpenAI API request failed. "
                 "Check the API key and connection."
+            )
+            continue
+        except GraphRecursionError:
+            print(
+                "\nAgent error: graph recursion limit reached. "
+                "Increase recursion_limit in .env or config.py, and ensure the agent has a proper stop condition."
             )
             continue
         except KeyboardInterrupt:
